@@ -9,7 +9,7 @@ public static void main(String[] args)
 	int[][] boardnum={{2,3,4},{5,6,7},{8,9,10}};
 	Scanner in=new Scanner(System.in);
 	String str;
-	int row=0,column=0;
+//	int row=0,column=0;
 	boolean result=false;
 	int i,j;
 	for(i=0;i<board.length;i++)
