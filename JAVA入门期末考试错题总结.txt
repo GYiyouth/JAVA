@@ -1,0 +1,16 @@
+$a Int 变量 ：都可以作为JAVA变量名，而4everb不可以；
+
+
+switch-case(c)  这里的C可以是int,String, char,不能是boolean
+
+ String s1 = "hello";
+ String s2 = "hello";
+ System.out.println(s1 == s2);
+是正确的。
+
+int i,j=6;
+i不会被初始化，而j会被初始化为6。
+
+字符'A'的Unicode编码为65
+System.out.println('A'+6+2);输出为73
+
