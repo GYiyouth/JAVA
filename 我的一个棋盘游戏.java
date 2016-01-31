@@ -9,7 +9,7 @@ public static void main(String[] args)
 	int[][] boardnum={{2,3,4},{5,6,7},{8,9,10}};
 	Scanner in=new Scanner(System.in);
 	String str;
-//	int row=0,column=0;
+        int empty=9;
 	boolean result=false;
 	int i,j;
 	for(i=0;i<board.length;i++)
@@ -25,7 +25,7 @@ public static void main(String[] args)
 			+ "请分别输入行数，列数，以及棋子儿，中间有空格。");
 
 	LOOP_WHILE:
-	while(!result)
+	while(!result&&empty>2)
 	{
 	//输出完整的棋盘
 	for(i=0;i<boardnum.length;i++)
@@ -69,7 +69,7 @@ public static void main(String[] args)
 			continue LOOP_WHILE;
 		}
 	}	
-	
+	empty--;
 	//结果判断
 	//行判断
 		if(board[i][0]||board[i][1]||board[i][2])
@@ -133,7 +133,9 @@ public static void main(String[] args)
 		}
 	
 	}//while
-	
+		//判和棋
+		if(empty<=2)
+		System.out.println("棋盘可下位置已不足，和棋");
 	
 	//最后输出完整的棋盘
 	for(i=0;i<boardnum.length;i++)
