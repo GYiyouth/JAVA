@@ -10,7 +10,7 @@ public abstract class Animal {
 	private int age;
 	private boolean isAlive = true;
 	
-	public Animal(int ageLimit, int breedableAge) {
+	public Animal(int ageLimit, int breedableAge) { // 构造函数，指定寿命与性成熟数字
 		this.ageLimit = ageLimit;
 		this.breedableAge = breedableAge;
 	}

@@ -13,7 +13,7 @@ public class View extends JPanel {
 	private static final int GRID_SIZE = 16;
 	private Field theField;
 	
-	public View(Field field) {
+	public View(Field field) { // 构造函数， 传输一个field进来
 		theField = field;
 	}
 

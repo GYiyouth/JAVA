@@ -1,7 +1,11 @@
 package foxnrabbit;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import animal.Animal;
@@ -15,8 +19,8 @@ import field.View;
 public class FoxAndRabbit {
 	private Field theField;
 	private View theView;
-	
-	public FoxAndRabbit(int size) {
+	private JFrame frame;
+	public FoxAndRabbit(int size) { // 构造函数，需要指定棋盘大小
 		theField = new Field(size, size);
 		for ( int row = 0; row<theField.getHeight(); row++ ) {
 			for ( int col = 0; col<theField.getWidth(); col++ ) {
@@ -27,17 +31,29 @@ public class FoxAndRabbit {
 					theField.place(row, col, new Rabbit());
 				} 
 			}
-		}
+		} // 随机的放置兔子和狐狸
+		
 		theView = new View(theField);
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setTitle("Cells");
-		frame.add(theView);
+		frame.add(theView); // 不指定位置，默认是CEENTER
+		JButton btnStep = new JButton("单步");
+		frame.add(btnStep,BorderLayout.SOUTH);
+		btnStep.addActionListener(new ActionListener() {
+			// 按钮动作
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("按下啦");
+				step();
+				frame.repaint();
+			}
+		});
 		frame.pack();
 		frame.setVisible(true);
 	}
-	
+			  
 	public void start(int steps) {
 		for ( int i=0; i<steps; i++ ) {
 			step();
@@ -93,7 +109,7 @@ public class FoxAndRabbit {
 	
 	public static void main(String[] args) {
 		FoxAndRabbit fnr = new FoxAndRabbit(50);
-		fnr.start(100);
+//		fnr.start(100);
 	}
 
 }
